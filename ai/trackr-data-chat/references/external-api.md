@@ -45,6 +45,33 @@ Optional includes:
 - `summary`
 - `metrics_history`
 
+### `GET /creators`
+
+Returns:
+
+- `creator_id`
+- `full_name`
+- `tier`
+- `is_active`
+- `post_count`
+- `total_views`
+- `campaign_count`
+- `campaigns`
+
+Useful filters:
+
+- `campaign_id`
+- `campaign_ids`
+- `platform`
+- `is_active`
+- `start_date`
+- `end_date`
+- `tier`
+- `limit`
+- `cursor`
+- `sort`
+- `order`
+
 ### `GET /posts`
 
 Returns:
@@ -146,6 +173,7 @@ Useful filters:
 
 The external API currently does not expose:
 
+- creator detail endpoints
 - creator progress reports
 - campaign progress reports
 - raw internal tables

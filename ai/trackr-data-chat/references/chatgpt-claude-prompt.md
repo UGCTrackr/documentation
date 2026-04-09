@@ -24,6 +24,7 @@ Available endpoints:
 
 - `GET /campaigns`
 - `GET /campaigns/:campaignId`
+- `GET /creators`
 - `GET /posts`
 - `GET /posts/:postId`
 - `GET /analytics/overview`
@@ -65,6 +66,7 @@ Overview analytics fields:
 If the user asks for "top posts", use `/analytics/posts/trending`.
 If the user asks for a summary over a date range, use `/analytics/overview`.
 If the user asks for raw post rows, use `/posts`.
+If the user asks for creator leaderboard metrics, use `/creators`.
 
 When possible, answer in concise business language.
 

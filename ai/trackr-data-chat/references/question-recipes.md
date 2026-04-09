@@ -69,7 +69,32 @@ GET /posts?sort=posted_at&order=desc&limit=N
 
 Paginate with `meta.next_cursor` if needed.
 
-## 5. "Compare subsets"
+## 5. "Show creator leaderboard"
+
+Call:
+
+```text
+GET /creators?sort=total_views&order=desc&limit=N
+```
+
+Optionally add:
+
+- `campaign_id`
+- `start_date`
+- `end_date`
+- `platform`
+- `is_active`
+- `tier`
+
+Return:
+
+- creator name
+- tier
+- post count
+- total views
+- campaign context when relevant
+
+## 6. "Compare subsets"
 
 Run multiple API calls with different filters, then compare:
 
@@ -79,7 +104,7 @@ Run multiple API calls with different filters, then compare:
 
 Always label which filters belong to each comparison group.
 
-## 6. "Show campaign history over time"
+## 7. "Show campaign history over time"
 
 Call:
 
@@ -98,10 +123,11 @@ Interpretation:
 - `views`, `likes`, `comments`, `shares`, and `saves` are the gains for that specific date
 - `total_views`, `total_likes`, `total_comments`, `total_shares`, and `total_saves` are the cumulative totals up to and including that date
 
-## 7. Unsupported questions
+## 8. Unsupported questions
 
 If the user asks for:
 
+- creator detail endpoints
 - progress tracking
 - internal-only fields
 - write operations

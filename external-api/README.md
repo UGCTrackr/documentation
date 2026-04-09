@@ -22,6 +22,7 @@ http://localhost:3000/api/external/v1
 
 - list campaigns
 - fetch a single campaign
+- list creators
 - list posts
 - fetch a single post
 - retrieve overview analytics
@@ -31,6 +32,7 @@ http://localhost:3000/api/external/v1
 
 - [Authentication](./authentication.md)
 - [Campaigns](./campaigns.md)
+- [Creators](./creators.md)
 - [Posts](./posts.md)
 - [Analytics](./analytics.md)
 - [Errors](./errors.md)
