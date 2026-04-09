@@ -23,6 +23,7 @@ Returns:
 - `start_date`
 - `end_date`
 - `is_active`
+- `ugc_engineer`
 
 Useful filters:
 
@@ -42,6 +43,7 @@ Optional includes:
 - `segments`
 - `handles`
 - `summary`
+- `metrics_history`
 
 ### `GET /posts`
 
@@ -86,6 +88,13 @@ Sortable fields:
 ### `GET /posts/:postId`
 
 Returns the same post object for one post.
+
+Single-post responses also include:
+
+- `content_traits.hook`
+- `content_traits.format_type`
+- `content_traits.expression`
+- `content_traits.location`
 
 Optional includes:
 
@@ -137,7 +146,6 @@ Useful filters:
 
 The external API currently does not expose:
 
-- arbitrary time series
 - creator progress reports
 - campaign progress reports
 - raw internal tables

@@ -11,6 +11,7 @@ Each campaign object includes:
 - `start_date`
 - `end_date`
 - `is_active`
+- `ugc_engineer`
 
 ## List campaigns
 
@@ -44,7 +45,8 @@ curl -s "https://app.ugctrackr.com/api/external/v1/campaigns?is_active=true" \
       "name": "Spring Creator Push",
       "start_date": "2026-03-01",
       "end_date": "2026-03-31",
-      "is_active": true
+      "is_active": true,
+      "ugc_engineer": "Jane Smith"
     }
   ],
   "meta": {
@@ -66,6 +68,7 @@ GET /campaigns/:campaignId
 - `segments`
 - `handles`
 - `summary`
+- `metrics_history`
 
 ### Example
 
@@ -75,3 +78,33 @@ curl -s "https://app.ugctrackr.com/api/external/v1/campaigns/CAMPAIGN_ID?include
 ```
 
 By default, the campaign payload remains minimal. Optional includes can add related data when needed.
+
+## Metrics history
+
+`include=metrics_history` adds daily campaign metrics from `campaign_metrics_daily` to the single-campaign response.
+
+Example:
+
+```bash
+curl -s "https://app.ugctrackr.com/api/external/v1/campaigns/CAMPAIGN_ID?include=metrics_history" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+Each `metrics_history` entry includes:
+
+- `date`
+- `views`
+- `likes`
+- `comments`
+- `shares`
+- `saves`
+- `total_views`
+- `total_likes`
+- `total_comments`
+- `total_shares`
+- `total_saves`
+- `active_posts_count`
+
+The daily fields (`views`, `likes`, `comments`, `shares`, `saves`) represent the amount gained on that specific date.
+
+The `total_*` fields represent the cumulative totals for that campaign up to and including that date. For example, `views` is the number of views gained that day, while `total_views` is the accumulated view count as of that day.

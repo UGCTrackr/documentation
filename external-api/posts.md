@@ -109,3 +109,43 @@ hook || title
 ```
 
 That matches how the app currently renders the Title column.
+
+## Content traits
+
+Single-post responses include Gemini-analyzed content traits from `posts_meta` by default.
+
+Example:
+
+```bash
+curl -s "https://app.ugctrackr.com/api/external/v1/posts/POST_ID" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+Response shape:
+
+```json
+{
+  "data": {
+    "post_id": "a65a61cf-6e80-4c36-bf60-5b7143f6f682",
+    "username": "@creatorname",
+    "platform": "tiktok",
+    "title": "Three hook ideas for your next UGC video",
+    "link": "https://www.tiktok.com/example",
+    "posted_at": "2026-03-18T15:42:00+00:00",
+    "views": 12000,
+    "likes": 640,
+    "comments": 25,
+    "shares": 14,
+    "saves": 33,
+    "content_traits": {
+      "hook": "Three hook ideas for your next UGC video",
+      "format_type": "Hook + Demo",
+      "expression": "Excited",
+      "location": "Kitchen"
+    }
+  },
+  "meta": {}
+}
+```
+
+If traits are not available yet, `content_traits` is still returned and its fields are `null`.

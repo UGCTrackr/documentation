@@ -79,11 +79,29 @@ Run multiple API calls with different filters, then compare:
 
 Always label which filters belong to each comparison group.
 
-## 6. Unsupported questions
+## 6. "Show campaign history over time"
+
+Call:
+
+```text
+GET /campaigns/:campaignId?include=metrics_history
+```
+
+Return:
+
+- the date range covered
+- daily metric changes when relevant
+- cumulative totals when relevant
+
+Interpretation:
+
+- `views`, `likes`, `comments`, `shares`, and `saves` are the gains for that specific date
+- `total_views`, `total_likes`, `total_comments`, `total_shares`, and `total_saves` are the cumulative totals up to and including that date
+
+## 7. Unsupported questions
 
 If the user asks for:
 
-- time series charts
 - progress tracking
 - internal-only fields
 - write operations
