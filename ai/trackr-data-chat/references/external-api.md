@@ -51,12 +51,25 @@ Returns:
 
 - `creator_id`
 - `full_name`
+- `email`
 - `tier`
 - `is_active`
+- `gender`
+- `birthday`
+- `location_label`
+- `school_name`
+- `graduation_year`
+- `preferred_campaign_volume`
+- `profile_interests`
 - `post_count`
 - `total_views`
 - `campaign_count`
+- `active_campaign_count`
+- `handle_count`
+- `active_handle_count`
 - `campaigns`
+
+`is_active` is the creator-level active status. `campaigns[].handles[].is_active` is the handle-level active status.
 
 Useful filters:
 
@@ -67,10 +80,22 @@ Useful filters:
 - `start_date`
 - `end_date`
 - `tier`
+- `gender`
+- `location`
+- `school`
+- `graduation_year`
+- `preferred_campaign_volume`
+- `interest`
+- `min_age`
+- `max_age`
+- `campaign_count`
+- `active_campaign_count`
 - `limit`
 - `cursor`
 - `sort`
 - `order`
+
+For creator text filters that may contain commas, such as `location`, `school`, `gender`, and `preferred_campaign_volume`, use repeated query parameters instead of comma-separated values. Example: `location=New%20York%2C%20NY&location=Chicago%2C%20IL`. The `interest` filter accepts comma-separated values.
 
 ### `GET /posts`
 
