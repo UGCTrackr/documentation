@@ -51,3 +51,5 @@ Examples:
 ## For ChatGPT or Claude
 
 If you want to use this outside Codex, start from [references/chatgpt-claude-prompt.md](./references/chatgpt-claude-prompt.md) and paste it into your project or custom instructions, then provide your API key separately.
+
+If Claude cannot reach the Trackr API from an organization-managed workspace, ask an admin to allowlist `app.ugctrackr.com`. Some Claude orgs block external app domains until they are explicitly approved.
