@@ -11,6 +11,9 @@ Use this skill when the task is to answer questions about Trackr data such as:
 - "What were our top posts this month?"
 - "Summarize post performance for TikTok last week."
 - "Compare campaign activity across a date range."
+- "What are people saying in comments?"
+- "Which comments are negative feedback or on-topic?"
+- "Summarize comment tracking for this campaign."
 
 ## Inputs required
 

@@ -27,6 +27,9 @@ Available endpoints:
 - `GET /creators`
 - `GET /posts`
 - `GET /posts/:postId`
+- `GET /comments/summary`
+- `GET /comments`
+- `GET /comments/top-posts`
 - `GET /analytics/overview`
 - `GET /analytics/posts/trending`
 
@@ -63,10 +66,40 @@ Overview analytics fields:
 - `engagement_rate`
 - `comment_rate`
 
+Comment tracking summary fields:
+
+- `analyzed_posts_count`
+- `total_comments_count`
+- `sentiment_score_100`
+- `on_topic_score_100`
+- `brand_mention_count`
+- `sentiment_breakdown`
+- `relevance_breakdown`
+- `type_breakdown`
+
+Comment fields:
+
+- `comment_id`
+- `post_id`
+- `campaign_id`
+- `text`
+- `username`
+- `display_name`
+- `posted_at`
+- `like_count`
+- `reply_count`
+- `region`
+- `language`
+- `sentiment_label`
+- `relevance_label`
+- `promotion_type`
+
 If the user asks for "top posts", use `/analytics/posts/trending`.
 If the user asks for a summary over a date range, use `/analytics/overview`.
 If the user asks for raw post rows, use `/posts`.
 If the user asks for creator leaderboard metrics, use `/creators`.
+If the user asks for comment tracking, comment sentiment, on-topic comments, negative feedback, or what viewers are saying, use `/comments/summary`, `/comments`, or `/comments/top-posts`.
+Do not claim the API can refresh or scrape comments; comment tracking endpoints are read-only.
 
 When possible, answer in concise business language.
 

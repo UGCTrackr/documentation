@@ -32,6 +32,7 @@ curl -s https://app.ugctrackr.com/api/external/v1/campaigns \
 - [Campaigns](./external-api/campaigns.md)
 - [Creators](./external-api/creators.md)
 - [Posts](./external-api/posts.md)
+- [Comments](./external-api/comments.md)
 - [Analytics](./external-api/analytics.md)
 - [Errors](./external-api/errors.md)
 
@@ -42,6 +43,9 @@ curl -s https://app.ugctrackr.com/api/external/v1/campaigns \
 - `GET /creators`
 - `GET /posts`
 - `GET /posts/:postId`
+- `GET /comments/summary`
+- `GET /comments`
+- `GET /comments/top-posts`
 - `GET /analytics/overview`
 - `GET /analytics/posts/trending`
 

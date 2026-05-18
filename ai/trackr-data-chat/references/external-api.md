@@ -152,6 +152,88 @@ Optional includes:
 
 - `campaign`
 - `metrics_history`
+- `comment_summary`
+
+`include=comment_summary` adds a lightweight `comment_tracking` object for the post when Comment Tracking data is available.
+
+### `GET /comments/summary`
+
+Returns aggregate Comment Tracking metrics across matching tracked posts.
+
+Useful filters:
+
+- `campaign_id`
+- `campaign_ids`
+- `creator_id`
+- `creator_ids`
+- `platform`
+- `start_date`
+- `end_date`
+
+Key fields:
+
+- `analyzed_posts_count`
+- `total_comments_count`
+- `last_scraped_at`
+- `sentiment_score_100`
+- `on_topic_score_100`
+- `brand_mention_count`
+- raw count fields such as `positive_count`, `negative_count`, `on_topic_count`, `off_topic_count`, and `negative_feedback_count`
+- `sentiment_breakdown`
+- `relevance_breakdown`
+- `type_breakdown`
+
+`on_topic_score_100` counts both `on_topic` and `negative_feedback` comments as relevant conversation. The raw relevance breakdown keeps those buckets separate.
+
+### `GET /comments`
+
+Returns analyzed comment rows with safe public fields and minimal post context.
+
+Useful filters:
+
+- `campaign_id`
+- `campaign_ids`
+- `creator_id`
+- `creator_ids`
+- `post_id`
+- `platform`
+- `start_date`
+- `end_date`
+- `sentiment_label`
+- `relevance_label`
+- `promotion_type`
+- `limit`
+- `cursor`
+- `sort`
+- `order`
+
+Supported sort fields:
+
+- `like_count`
+- `posted_at`
+
+Label values:
+
+- `sentiment_label`: `positive`, `neutral`, `negative`
+- `relevance_label`: `on_topic`, `off_topic`, `negative_feedback`
+- `promotion_type`: `curiosity_driver`, `social_proof`, `word_of_mouth`, `feature_highlight`, `none`
+
+Comment rows include `comment_id`, `post_id`, `campaign_id`, `text`, `username`, `display_name`, `posted_at`, `like_count`, `reply_count`, `region`, `language`, labels, and minimal `post` context.
+
+### `GET /comments/top-posts`
+
+Returns top tracked posts by views with the highest-liked analyzed comment for each post.
+
+Useful filters:
+
+- `campaign_id`
+- `campaign_ids`
+- `creator_id`
+- `creator_ids`
+- `platform`
+- `start_date`
+- `end_date`
+- `limit`
 
 ### `GET /analytics/overview`
 
@@ -202,5 +284,6 @@ The external API currently does not expose:
 - creator progress reports
 - campaign progress reports
 - raw internal tables
+- comment scraping or refresh operations
 
 If the user asks for one of those, say the current API does not expose it.

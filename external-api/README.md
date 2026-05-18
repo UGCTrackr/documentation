@@ -25,6 +25,7 @@ http://localhost:3000/api/external/v1
 - list creators
 - list posts
 - fetch a single post
+- retrieve comment tracking summaries and analyzed comments
 - retrieve overview analytics
 - retrieve trending posts
 
@@ -34,6 +35,7 @@ http://localhost:3000/api/external/v1
 - [Campaigns](./campaigns.md)
 - [Creators](./creators.md)
 - [Posts](./posts.md)
+- [Comments](./comments.md)
 - [Analytics](./analytics.md)
 - [Errors](./errors.md)
 

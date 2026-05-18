@@ -92,6 +92,7 @@ GET /posts/:postId
 
 - `campaign`
 - `metrics_history`
+- `comment_summary`
 
 ### Example
 
@@ -149,3 +150,18 @@ Response shape:
 ```
 
 If traits are not available yet, `content_traits` is still returned and its fields are `null`.
+
+## Comment tracking summary
+
+`include=comment_summary` adds a lightweight `comment_tracking` object to a single-post response when Comment Tracking data is available.
+
+Example:
+
+```bash
+curl -s "https://app.ugctrackr.com/api/external/v1/posts/POST_ID?include=comment_summary" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+If the post has not been analyzed yet, `comment_tracking` is `null`.
+
+For campaign-level summaries and analyzed comment rows, use the [Comments](./comments.md) endpoints.

@@ -123,13 +123,85 @@ Interpretation:
 - `views`, `likes`, `comments`, `shares`, and `saves` are the gains for that specific date
 - `total_views`, `total_likes`, `total_comments`, `total_shares`, and `total_saves` are the cumulative totals up to and including that date
 
-## 8. Unsupported questions
+## 8. "Summarize comment tracking"
+
+Call:
+
+```text
+GET /comments/summary?campaign_id=...
+```
+
+Optionally add:
+
+- `campaign_ids`
+- `creator_id`
+- `creator_ids`
+- `platform`
+- `start_date`
+- `end_date`
+
+Return:
+
+- analyzed posts and total analyzed comments
+- sentiment score and sentiment breakdown
+- on-topic score and relevance breakdown
+- brand mentions
+- top promotion signal counts when useful
+
+Note that `on_topic_score_100` counts both `on_topic` and `negative_feedback` as relevant conversation, while `relevance_breakdown` keeps the raw buckets separate.
+
+## 9. "Show analyzed comments"
+
+Call:
+
+```text
+GET /comments?campaign_id=...&limit=N
+```
+
+For one post:
+
+```text
+GET /comments?post_id=...
+```
+
+Optionally add:
+
+- `sentiment_label=positive|neutral|negative`
+- `relevance_label=on_topic|off_topic|negative_feedback`
+- `promotion_type=curiosity_driver|social_proof|word_of_mouth|feature_highlight|none`
+- `sort=like_count|posted_at`
+- `order=asc|desc`
+
+Return:
+
+- comment text
+- username or display name
+- likes and replies
+- sentiment, relevance, and promotion labels
+- post context when useful
+
+## 10. "Which top posts drove comment discussion?"
+
+Call:
+
+```text
+GET /comments/top-posts?campaign_id=...&limit=N
+```
+
+Return:
+
+- post title, creator username, views, and link
+- highest-liked analyzed comment for each top post
+- sentiment, relevance, and promotion labels for that comment
+
+## 11. Unsupported questions
 
 If the user asks for:
 
 - creator detail endpoints
 - progress tracking
 - internal-only fields
+- comment scraping or refresh operations
 - write operations
 
 Explain that the current public API does not expose that capability yet.
