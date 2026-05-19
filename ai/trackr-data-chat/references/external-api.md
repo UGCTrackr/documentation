@@ -102,6 +102,7 @@ For creator text filters that may contain commas, such as `location`, `school`, 
 Returns:
 
 - `post_id`
+- `campaign_id`
 - `username`
 - `platform`
 - `title`

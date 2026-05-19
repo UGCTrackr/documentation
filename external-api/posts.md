@@ -7,6 +7,7 @@ Post responses only expose fields currently shown in the UGC Trackr posts table,
 Each post object includes:
 
 - `post_id`
+- `campaign_id`
 - `username`
 - `platform`
 - `title`
@@ -62,6 +63,7 @@ curl -s "https://app.ugctrackr.com/api/external/v1/posts?limit=10&sort=posted_at
   "data": [
     {
       "post_id": "a65a61cf-6e80-4c36-bf60-5b7143f6f682",
+      "campaign_id": "8b0e8072-2eb6-4b9d-bc9b-43f11f0cc1d3",
       "username": "@creatorname",
       "platform": "tiktok",
       "title": "Three hook ideas for your next UGC video",
@@ -128,6 +130,7 @@ Response shape:
 {
   "data": {
     "post_id": "a65a61cf-6e80-4c36-bf60-5b7143f6f682",
+    "campaign_id": "8b0e8072-2eb6-4b9d-bc9b-43f11f0cc1d3",
     "username": "@creatorname",
     "platform": "tiktok",
     "title": "Three hook ideas for your next UGC video",

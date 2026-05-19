@@ -44,6 +44,7 @@ Campaign fields:
 Post fields:
 
 - `post_id`
+- `campaign_id`
 - `username`
 - `platform`
 - `title`
